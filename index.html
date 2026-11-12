@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Next Level Media | Sports, Athletes, Brands and Events</title>
+<meta name="description" content="Next Level Media shoots photo and video for athletes, teams, brands and events. Contact us to book a shoot.">
+<meta property="og:title" content="Next Level Media">
+<meta property="og:description" content="Photo and video for athletes, teams, brands and events.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{--accent:#FED104;--bg:#000;--panel:#0A0A0A;--line:#1F1F1F;--muted:#B5B5B5;--wrap:1280px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:#fff;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--accent)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+.display{font-family:Michroma,sans-serif;font-weight:400;letter-spacing:.01em}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.2em;color:var(--accent);margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:16px 28px;border-radius:2px;font-weight:700;font-size:15px;letter-spacing:.05em;text-decoration:none;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--accent);color:#000}
+.btn-primary:hover{background:#FFE45C}
+.btn-ghost{color:#fff;border:1px solid #4A4A4A}
+.btn-ghost:hover{border-color:#fff}
+.btn-dark{background:#000;color:#fff}
+
+header{position:sticky;top:0;z-index:20;background:rgba(0,0,0,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff}
+.brand img{height:30px;width:auto}
+.brand span{font-family:Michroma,sans-serif;font-size:13px;letter-spacing:.08em}
+.navlinks{display:flex;flex-wrap:wrap;align-items:center;gap:28px}
+.navlinks a.link{color:#D4D4D4;text-decoration:none;font-size:15px;font-weight:500}
+.navlinks a.link:hover{color:#fff}
+.navlinks .btn{min-height:44px;padding:12px 20px;font-size:13px}
+
+.hero{position:relative;min-height:calc(100vh - 64px);min-height:min(820px,calc(100vh - 64px));display:flex;align-items:flex-end;overflow:hidden;background:#0E0E0E}
+.hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#5E5E5E;font-size:13px;letter-spacing:.14em;text-transform:uppercase;background:radial-gradient(ellipse at 70% 30%,#1A1A1A 0%,#0B0B0B 60%)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.92) 100%)}
+.hero-inner{position:relative;z-index:1;width:100%;padding-bottom:96px;display:flex;flex-direction:column;gap:28px}
+.tagline{display:flex;align-items:center;gap:14px}
+.tagline i{width:48px;height:6px;background:var(--accent);transform:skewX(-30deg);display:block}
+.tagline p{margin:0;font-size:14px;font-weight:600;letter-spacing:.18em;color:var(--accent)}
+.hero h1{margin:0;font-size:clamp(34px,6vw,84px);line-height:1.08;max-width:1050px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{margin:0;font-size:clamp(17px,1.6vw,21px);line-height:1.6;color:#D4D4D4;max-width:640px}
+.actions{display:flex;flex-wrap:wrap;gap:14px;padding-top:8px}
+
+section.block{padding:120px 0}
+.head{display:flex;flex-direction:column;gap:16px;margin-bottom:56px}
+.head h2,.about h2{margin:0;font-size:clamp(26px,3.4vw,46px);line-height:1.15}
+
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.service{background:#000;padding:40px 32px;display:flex;flex-direction:column;gap:16px}
+.service .num{font-family:Michroma,sans-serif;font-size:14px;color:var(--accent)}
+.service h3{margin:0;font-size:22px;font-weight:700}
+.service p{margin:0;font-size:16px;line-height:1.6;color:var(--muted)}
+
+.work{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.work .head{flex-direction:row;flex-wrap:wrap;align-items:flex-end;justify-content:space-between}
+.work .head > div{display:flex;flex-direction:column;gap:16px}
+.work .head a{font-size:15px;font-weight:600;letter-spacing:.04em;min-height:44px;display:inline-flex;align-items:center}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.tile{aspect-ratio:4/5;background:#171717;border:1px solid #262626;overflow:hidden;position:relative}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.tile:hover img{transform:scale(1.04)}
+.ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#5E5E5E;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+
+.about{display:flex;flex-wrap:wrap;align-items:center;gap:64px}
+.about .pic{flex:1 1 380px;aspect-ratio:1/1;background:#171717;border:1px solid #262626;position:relative;overflow:hidden}
+.about .pic img{width:100%;height:100%;object-fit:cover}
+.about .copy{flex:1 1 440px;display:flex;flex-direction:column;gap:24px}
+.about p.body{margin:0;font-size:18px;line-height:1.7;color:#C4C4C4}
+
+.book{background:var(--accent);color:#000}
+.book .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:48px;padding-top:112px;padding-bottom:112px}
+.book .copy{flex:1 1 520px;display:flex;flex-direction:column;gap:20px}
+.book h2{margin:0;font-size:clamp(28px,4vw,56px);line-height:1.1}
+.book p{margin:0;font-size:19px;line-height:1.6;max-width:560px;color:#1A1A1A}
+.contact{flex:0 1 420px;display:flex;flex-direction:column;gap:14px}
+.contact .btn{padding:22px 32px;font-size:16px}
+.contact ul{list-style:none;margin:0;padding:10px 0 0;display:flex;flex-direction:column;gap:10px;font-size:17px;font-weight:600}
+.contact ul a{color:#000;text-decoration:none}
+.contact ul a:hover{text-decoration:underline}
+
+footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding-top:56px;padding-bottom:56px}
+footer .brand img{height:26px}
+footer .brand span{font-size:12px}
+footer small{font-size:14px;color:#9A9A9A}
+
+@media (max-width:640px){
+ .wrap{padding:0 20px}
+ .navlinks{gap:18px}
+ .navlinks a.link{display:none}
+ section.block{padding:80px 0}
+ .hero-inner{padding-bottom:64px}
+ .gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<nav class="wrap" aria-label="Main">
+<a class="brand" href="#top"><img src="logo.svg" alt="Next Level Media logo"><span>NEXT LEVEL <b style="color:var(--accent);font-weight:400">MEDIA</b></span></a>
+<div class="navlinks">
+<a class="link" href="#work">Work</a>
+<a class="link" href="#services">Services</a>
+<a class="link" href="#about">About</a>
+<a class="btn btn-primary" href="#book">BOOK A SHOOT</a>
+</div>
+</nav>
+</header>
+
+<main>
+<section id="top" class="hero" aria-label="Intro">
+<!-- HERO: replace this placeholder with <img class="hero-media" src="images/hero.jpg" alt="..."> or a muted autoplay video -->
+<div class="hero-placeholder" aria-hidden="true">Hero photo or video reel coming soon</div>
+<div class="wrap hero-inner">
+<div class="tagline"><i aria-hidden="true"></i><p>SPORTS · ATHLETES · BRANDS · EVENTS</p></div>
+<h1 class="display">TAKE YOUR STORY TO THE <em>NEXT LEVEL.</em></h1>
+<p class="lead">Photo and video for athletes, teams, brands and events. We capture the energy, the moments and the people so your content hits as hard as you do.</p>
+<div class="actions">
+<a class="btn btn-primary" href="#book">BOOK A SHOOT</a>
+<a class="btn btn-ghost" href="#work">SEE THE WORK</a>
+</div>
+</div>
+</section>
+
+<section id="services" class="block" aria-labelledby="services-h">
+<div class="wrap">
+<div class="head">
+<p class="eyebrow">WHAT WE SHOOT</p>
+<h2 id="services-h" class="display">Built for the moments that move.</h2>
+</div>
+<div class="services">
+<div class="service"><span class="num">01</span><h3>Sports</h3><p>Game day coverage, highlight reels and action photography for teams, leagues and schools.</p></div>
+<div class="service"><span class="num">02</span><h3>Athletes</h3><p>Portraits, recruiting content, training sessions and personal brand shoots that get you noticed.</p></div>
+<div class="service"><span class="num">03</span><h3>Brands</h3><p>Product, campaign and social content that makes your brand look as good as it is.</p></div>
+<div class="service"><span class="num">04</span><h3>Events</h3><p>Tournaments, showcases, launches and live events captured start to finish.</p></div>
+</div>
+</div>
+</section>
+
+<section id="work" class="block work" aria-labelledby="work-h">
+<div class="wrap">
+<div class="head">
+<div><p class="eyebrow">THE WORK</p><h2 id="work-h" class="display">Recent shots.</h2></div>
+<a href="#book">WANT THIS FOR YOUR TEAM? LET'S TALK</a>
+</div>
+<div class="gallery">
+<!-- GALLERY: replace each placeholder with <img src="images/work1.jpg" alt="..." loading="lazy"> -->
+<div class="tile"><div class="ph">Photo 1</div></div>
+<div class="tile"><div class="ph">Photo 2</div></div>
+<div class="tile"><div class="ph">Photo 3</div></div>
+<div class="tile"><div class="ph">Photo 4</div></div>
+<div class="tile"><div class="ph">Photo 5</div></div>
+<div class="tile"><div class="ph">Photo 6</div></div>
+<div class="tile"><div class="ph">Photo 7</div></div>
+<div class="tile"><div class="ph">Photo 8</div></div>
+<div class="tile"><div class="ph">Photo 9</div></div>
+</div>
+</div>
+</section>
+
+<section id="about" class="block" aria-labelledby="about-h">
+<div class="wrap about">
+<div class="pic"><div class="ph">Photo coming soon</div></div>
+<div class="copy">
+<p class="eyebrow">ABOUT</p>
+<h2 id="about-h" class="display">We don't just shoot. We level you up.</h2>
+<p class="body">Next Level Media is a creative team that lives where sport, culture and brand meet. From the sideline to the studio, we bring the same hunger to every shoot and deliver content you are proud to post.</p>
+</div>
+</div>
+</section>
+
+<section id="book" class="book" aria-labelledby="book-h">
+<div class="wrap">
+<div class="copy">
+<h2 id="book-h" class="display">READY TO GO TO THE NEXT LEVEL?</h2>
+<p>Tell us what you're planning, the date and where it is. We'll get back to you with availability and a quote.</p>
+</div>
+<div class="contact">
+<!-- CONTACT: put the real email in both places below -->
+<a class="btn btn-dark" href="#book">EMAIL TO BOOK</a>
+<ul>
+<li>Email: coming soon</li>
+<li>Phone: coming soon</li>
+<li>Instagram: coming soon</li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<a class="brand" href="#top"><img src="logo.svg" alt=""><span><b style="color:var(--accent);font-weight:400">NEXT</b> LEVEL <b style="color:var(--accent);font-weight:400">MEDIA</b></span></a>
+<small>© <span id="yr">2026</span> Next Level Media. Sports, athletes, brands and events.</small>
+</div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
