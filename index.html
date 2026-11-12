@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Next Level Media | Sports, Athletes, Brands and Events</title>
-<meta name="description" content="Next Level Media shoots photo and video for athletes, teams, brands and events. Contact us to book a shoot.">
+<meta name="description" content="Next Level Media shoots photo and video for athletes, teams, brands, events and portraits. Contact us to book a shoot.">
 <meta property="og:title" content="Next Level Media">
 <meta property="og:description" content="Photo and video for athletes, teams, brands and events.">
 <meta name="theme-color" content="#000000">
@@ -40,25 +40,36 @@ nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between
 .navlinks a.link:hover{color:#fff}
 .navlinks .btn{min-height:44px;padding:12px 20px;font-size:13px}
 
-.hero{position:relative;min-height:calc(100vh - 64px);min-height:min(820px,calc(100vh - 64px));display:flex;align-items:flex-end;overflow:hidden;background:#0E0E0E}
-.hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#5E5E5E;font-size:13px;letter-spacing:.14em;text-transform:uppercase;background:radial-gradient(ellipse at 70% 30%,#1A1A1A 0%,#0B0B0B 60%)}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.92) 100%)}
-.hero-inner{position:relative;z-index:1;width:100%;padding-bottom:96px;display:flex;flex-direction:column;gap:28px}
+.hero{position:relative;overflow:hidden;background:#000;border-bottom:1px solid var(--line)}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center;gap:56px;padding-top:72px;padding-bottom:88px;min-height:min(860px,calc(100vh - 64px))}
+.hero-copy{display:flex;flex-direction:column;gap:28px}
+.hero-media{position:relative;justify-self:end;width:100%;max-width:560px}
+.hero-photo{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border:1px solid #262626}
+.hero-reel{position:absolute;left:-64px;bottom:-40px;width:34%;aspect-ratio:9/16;object-fit:cover;border:3px solid var(--accent);background:#111;box-shadow:0 24px 60px rgba(0,0,0,.6)}
 .tagline{display:flex;align-items:center;gap:14px}
-.tagline i{width:48px;height:6px;background:var(--accent);transform:skewX(-30deg);display:block}
+.tagline i{width:48px;height:6px;background:var(--accent);transform:skewX(-30deg);display:block;flex:none}
 .tagline p{margin:0;font-size:14px;font-weight:600;letter-spacing:.18em;color:var(--accent)}
-.hero h1{margin:0;font-size:clamp(34px,6vw,84px);line-height:1.08;max-width:1050px}
+.hero h1{margin:0;font-size:clamp(34px,4.8vw,72px);line-height:1.08}
 .hero h1 em{font-style:normal;color:var(--accent)}
-.hero .lead{margin:0;font-size:clamp(17px,1.6vw,21px);line-height:1.6;color:#D4D4D4;max-width:640px}
+.hero .lead{margin:0;font-size:clamp(17px,1.5vw,20px);line-height:1.6;color:#D4D4D4;max-width:560px}
+@media (max-width:900px){
+ .hero-grid{grid-template-columns:1fr;min-height:calc(100svh - 64px);align-items:end;padding-top:120px;padding-bottom:72px}
+ .hero-media{position:static}
+ .hero-photo{display:none}
+ .hero-reel{position:absolute;inset:0;left:0;bottom:0;width:100%;height:100%;aspect-ratio:auto;border:0;box-shadow:none;z-index:-2}
+ .hero-grid:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.6) 35%,rgba(0,0,0,.94) 80%)}
+ .hero-grid{position:static}
+ .hero{position:relative;z-index:0}
+ .hero-copy{position:relative;z-index:1}
+}
 .actions{display:flex;flex-wrap:wrap;gap:14px;padding-top:8px}
 
 section.block{padding:120px 0}
 .head{display:flex;flex-direction:column;gap:16px;margin-bottom:56px}
 .head h2,.about h2{margin:0;font-size:clamp(26px,3.4vw,46px);line-height:1.15}
 
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
-.service{background:#000;padding:40px 32px;display:flex;flex-direction:column;gap:16px}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.service{background:#000;padding:36px 26px;display:flex;flex-direction:column;gap:16px}
 .service .num{font-family:Michroma,sans-serif;font-size:14px;color:var(--accent)}
 .service h3{margin:0;font-size:22px;font-weight:700}
 .service p{margin:0;font-size:16px;line-height:1.6;color:var(--muted)}
@@ -67,10 +78,6 @@ section.block{padding:120px 0}
 .work .head{flex-direction:row;flex-wrap:wrap;align-items:flex-end;justify-content:space-between}
 .work .head > div{display:flex;flex-direction:column;gap:16px}
 .work .head a{font-size:15px;font-weight:600;letter-spacing:.04em;min-height:44px;display:inline-flex;align-items:center}
-.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
-.tile{aspect-ratio:4/5;background:#171717;border:1px solid #262626;overflow:hidden;position:relative}
-.tile img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
-.tile:hover img{transform:scale(1.04)}
 .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#5E5E5E;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
 
 .about{display:flex;flex-wrap:wrap;align-items:center;gap:64px}
@@ -88,6 +95,9 @@ section.block{padding:120px 0}
 .contact .btn{padding:22px 32px;font-size:16px}
 .contact ul{list-style:none;margin:0;padding:10px 0 0;display:flex;flex-direction:column;gap:10px;font-size:17px;font-weight:600}
 .contact ul a{color:#000;text-decoration:none}
+.contact-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn-outline-dark{color:#000;border:2px solid #000;padding:14px 12px;font-size:13px}
+.btn-outline-dark:hover{background:#000;color:#fff}
 .contact ul a:hover{text-decoration:underline}
 
 footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding-top:56px;padding-bottom:56px}
@@ -100,9 +110,101 @@ footer small{font-size:14px;color:#9A9A9A}
  .navlinks{gap:18px}
  .navlinks a.link{display:none}
  section.block{padding:80px 0}
- .hero-inner{padding-bottom:64px}
- .gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .mobile-book{display:flex}
+ body{padding-bottom:76px}
 }
+
+.trusted{background:#0A0A0A;border-bottom:1px solid var(--line)}
+.trusted .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 28px;padding-top:28px;padding-bottom:28px;text-align:center}
+.trusted .label{font-size:12px;font-weight:600;letter-spacing:.22em;color:#9A9A9A}
+.trusted .name{font-family:Michroma,sans-serif;font-size:clamp(14px,1.6vw,18px);letter-spacing:.04em;color:#fff}
+.trusted .name b{color:var(--accent);font-weight:400}
+.trusted .sub{font-size:14px;color:#9A9A9A}
+
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.review{margin:0;background:#0E0E0E;border:1px solid var(--line);padding:36px 32px;display:flex;flex-direction:column;gap:24px}
+.review .stars{color:var(--accent);font-size:18px;letter-spacing:4px}
+.review blockquote{margin:0;font-size:17px;line-height:1.7;color:#E2E2E2}
+.review figcaption{margin-top:auto;display:flex;flex-direction:column;gap:4px}
+.review figcaption strong{font-size:16px}
+.review figcaption span{font-size:14px;color:#9A9A9A}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:40px;counter-reset:step}
+.step{display:flex;flex-direction:column;gap:14px;border-top:2px solid var(--accent);padding-top:28px}
+.step .num{font-family:Michroma,sans-serif;font-size:28px;color:var(--accent)}
+.step h3{margin:0;font-size:22px}
+.step p{margin:0;font-size:16px;line-height:1.6;color:var(--muted)}
+
+.featured{padding:120px 0}
+.featured .intro{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 48px;margin-bottom:48px}
+.featured .intro > div{display:flex;flex-direction:column;gap:16px;max-width:720px}
+.featured h2{margin:0;font-size:clamp(26px,3.4vw,46px);line-height:1.15}
+.featured h2 em{font-style:normal;color:var(--accent)}
+.featured .intro p.body{margin:0;font-size:18px;line-height:1.7;color:#C4C4C4}
+.featured .intro a{font-size:15px;font-weight:600;letter-spacing:.04em;min-height:44px;display:inline-flex;align-items:center}
+.mosaic{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:260px;gap:12px}
+.mosaic figure{margin:0;overflow:hidden;background:#111;position:relative}
+.mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.mosaic figure:hover img{transform:scale(1.04)}
+.mosaic .w2{grid-column:span 2}
+.mosaic .h2{grid-row:span 2}
+.mosaic figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 18px 14px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.75))}
+@media (max-width:900px){
+ .featured{padding:80px 0}
+ .mosaic{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:200px;gap:8px}
+ .mosaic .w2{grid-column:span 2}
+ .mosaic .h2{grid-row:span 2}
+ .mosaic .m1{grid-row:span 2}
+}
+
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:-24px 0 32px}
+.filter{min-height:44px;padding:10px 20px;border:1px solid #3A3A3A;background:transparent;color:#D4D4D4;font:600 14px Inter,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;border-radius:2px;cursor:pointer}
+.filter:hover{border-color:#fff;color:#fff}
+.filter.is-on{background:var(--accent);border-color:var(--accent);color:#000}
+.gallery{columns:3 280px;column-gap:12px}
+.tile{display:block;width:100%;margin:0 0 12px;padding:0;border:0;background:#111;cursor:zoom-in;overflow:hidden;break-inside:avoid}
+.tile img{width:100%;height:auto;display:block;transition:transform .5s ease,opacity .3s}
+.tile:hover img{transform:scale(1.03)}
+.tile[hidden]{display:none}
+.more{display:flex;justify-content:center;margin-top:28px}
+.more[hidden]{display:none}
+.lightbox{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh}
+.lightbox::backdrop{background:rgba(0,0,0,.94)}
+.lightbox .stage{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:64px 72px;box-sizing:border-box}
+.lightbox img{max-width:100%;max-height:100%;object-fit:contain}
+.lb-btn{position:fixed;width:52px;height:52px;border:1px solid #3A3A3A;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lb-btn:hover{border-color:var(--accent);color:var(--accent)}
+.lb-close{top:16px;right:16px}
+.lb-prev{left:16px;top:50%;transform:translateY(-50%)}
+.lb-next{right:16px;top:50%;transform:translateY(-50%)}
+@media (max-width:640px){.gallery{columns:2;column-gap:8px}.tile{margin-bottom:8px}.lightbox .stage{padding:72px 8px}.lb-prev,.lb-next{top:auto;bottom:16px;transform:none}}
+
+.about-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 64px;margin-bottom:56px}
+.about-top h2 em{font-style:normal;color:var(--accent)}
+.about-copy{flex:1 1 420px;max-width:600px;display:flex;flex-direction:column;gap:16px}
+.about-copy p.body,.mission p.body{margin:0;font-size:18px;line-height:1.7;color:#C4C4C4}
+.about-copy strong,.mission strong{color:var(--accent);font-weight:600}
+.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.member{margin:0;display:flex;flex-direction:column;gap:18px}
+.member-pic{aspect-ratio:4/5;overflow:hidden;background:#111;border-bottom:4px solid var(--accent)}
+.member-pic img{width:100%;height:100%;object-fit:cover}
+.member h3{margin:0;font-family:Michroma,sans-serif;font-weight:400;font-size:24px}
+.member figcaption span{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#9A9A9A}
+.member figcaption{display:flex;flex-direction:column;gap:8px}
+.mission{background:#0E0E0E;border:1px solid var(--line);padding:40px 36px;display:flex;flex-direction:column;gap:22px;justify-content:center}
+.mission-big{margin:0;font-size:clamp(30px,3vw,44px);line-height:1.15}
+.mission-big b{color:var(--accent);font-weight:400}
+.pillars{list-style:none;margin:6px 0 0;padding:20px 0 0;border-top:1px solid #2A2A2A;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pillars li{display:flex;flex-direction:column;gap:4px}
+.pillars strong{color:var(--accent);font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.pillars span{font-size:13px;line-height:1.4;color:#B5B5B5}
+.values{margin:48px 0 0;padding:22px 24px;border:1px solid #6B5A10;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 36px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#D4D4D4}
+.values b{color:var(--accent);font-weight:600}
+@media (max-width:900px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}.mission{grid-column:span 2}}
+@media (max-width:520px){.team{grid-template-columns:1fr}.mission{grid-column:auto}}
+
+.mobile-book{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;background:var(--accent);color:#000;justify-content:center;align-items:center;min-height:52px;font-weight:700;letter-spacing:.06em;text-decoration:none;border-radius:2px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+@media (max-width:640px){.mobile-book{display:flex}.navlinks .btn{display:none}}
 </style>
 </head>
 <body>
@@ -111,8 +213,10 @@ footer small{font-size:14px;color:#9A9A9A}
 <nav class="wrap" aria-label="Main">
 <a class="brand" href="#top"><img src="logo.svg" alt="Next Level Media logo"><span>NEXT LEVEL <b style="color:var(--accent);font-weight:400">MEDIA</b></span></a>
 <div class="navlinks">
+<a class="link" href="#featured">Featured</a>
 <a class="link" href="#work">Work</a>
 <a class="link" href="#services">Services</a>
+<a class="link" href="#reviews">Reviews</a>
 <a class="link" href="#about">About</a>
 <a class="btn btn-primary" href="#book">BOOK A SHOOT</a>
 </div>
@@ -121,15 +225,48 @@ footer small{font-size:14px;color:#9A9A9A}
 
 <main>
 <section id="top" class="hero" aria-label="Intro">
-<!-- HERO: replace this placeholder with <img class="hero-media" src="images/hero.jpg" alt="..."> or a muted autoplay video -->
-<div class="hero-placeholder" aria-hidden="true">Hero photo or video reel coming soon</div>
-<div class="wrap hero-inner">
-<div class="tagline"><i aria-hidden="true"></i><p>SPORTS · ATHLETES · BRANDS · EVENTS</p></div>
+<div class="wrap hero-grid">
+<div class="hero-copy">
+<div class="tagline"><i aria-hidden="true"></i><p>SPORTS · ATHLETES · BRANDS · EVENTS · PORTRAITS</p></div>
 <h1 class="display">TAKE YOUR STORY TO THE <em>NEXT LEVEL.</em></h1>
-<p class="lead">Photo and video for athletes, teams, brands and events. We capture the energy, the moments and the people so your content hits as hard as you do.</p>
+<p class="lead">Photo and video for athletes, teams, brands, events and portraits. We capture the energy, the moments and the people so your content hits as hard as you do.</p>
 <div class="actions">
 <a class="btn btn-primary" href="#book">BOOK A SHOOT</a>
 <a class="btn btn-ghost" href="#work">SEE THE WORK</a>
+</div>
+</div>
+<div class="hero-media">
+<img class="hero-photo" src="hero-photo.jpg" alt="Football player in a black helmet, shot by Next Level Media" width="1100" height="1093">
+<video class="hero-reel" src="hero.mp4" poster="hero-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Training highlight reel by Next Level Media"></video>
+</div>
+</div>
+</section>
+
+<section class="trusted" aria-label="Trusted by">
+<div class="wrap">
+<span class="label">TRUSTED BY</span>
+<span class="name">2x NFL MVP <b>LAMAR JACKSON</b></span>
+<span class="sub">Baltimore Ravens QB, plus athletes, teams, schools and families</span>
+</div>
+</section>
+
+<section id="featured" class="featured" aria-labelledby="featured-h">
+<div class="wrap">
+<div class="intro">
+<div>
+<p class="eyebrow">FEATURED</p>
+<h2 id="featured-h" class="display">Lamar Jackson's <em>jersey retirement.</em></h2>
+<p class="body">We covered 2x NFL MVP Lamar Jackson's return to Boynton Beach High School as the school retired his #7 jersey. From his arrival to the ceremony on the field, we captured every moment of a day the community will never forget.</p>
+</div>
+<a href="https://instagram.com/nextlevelmedia99" target="_blank" rel="noopener">SEE MORE ON INSTAGRAM</a>
+</div>
+<div class="mosaic">
+<figure class="w2 h2"><img src="lamar-sign.jpg" alt="Lamar Jackson holding a Lamar Jackson Way street sign and a number 7 speed limit sign" loading="lazy"><figcaption>Lamar Jackson Way</figcaption></figure>
+<figure class="h2"><img src="lamar-arrival.jpg" alt="Lamar Jackson walking in with his crew before the ceremony" loading="lazy"></figure>
+<figure class="h2"><img src="lamar-jersey.jpg" alt="Lamar Jackson on stage with coaches holding his framed Boynton Beach number 7 jersey" loading="lazy"></figure>
+<figure class="w2 h2"><img src="lamar-honor.jpg" alt="Lamar Jackson receiving a framed proclamation on stage" loading="lazy"><figcaption>The ceremony</figcaption></figure>
+<figure class="h2 m1"><img src="lamar-smile.jpg" alt="Lamar Jackson smiling at the event" loading="lazy"></figure>
+<figure class="h2 m1"><img src="lamar-office.jpg" alt="Lamar Jackson next to his framed high school jersey" loading="lazy"></figure>
 </div>
 </div>
 </section>
@@ -145,6 +282,7 @@ footer small{font-size:14px;color:#9A9A9A}
 <div class="service"><span class="num">02</span><h3>Athletes</h3><p>Portraits, recruiting content, training sessions and personal brand shoots that get you noticed.</p></div>
 <div class="service"><span class="num">03</span><h3>Brands</h3><p>Product, campaign and social content that makes your brand look as good as it is.</p></div>
 <div class="service"><span class="num">04</span><h3>Events</h3><p>Tournaments, showcases, launches and live events captured start to finish.</p></div>
+<div class="service"><span class="num">05</span><h3>Portraits</h3><p>Graduation, birthday and quinceañera shoots that feel like you and look like a magazine cover.</p></div>
 </div>
 </div>
 </section>
@@ -152,32 +290,181 @@ footer small{font-size:14px;color:#9A9A9A}
 <section id="work" class="block work" aria-labelledby="work-h">
 <div class="wrap">
 <div class="head">
-<div><p class="eyebrow">THE WORK</p><h2 id="work-h" class="display">Recent shots.</h2></div>
+<div><p class="eyebrow">PORTFOLIO</p><h2 id="work-h" class="display">The work.</h2></div>
 <a href="#book">WANT THIS FOR YOUR TEAM? LET'S TALK</a>
 </div>
+<div class="filters" role="group" aria-label="Filter photos">
+<button type="button" class="filter is-on" data-filter="all" aria-pressed="true">All</button>
+<button type="button" class="filter" data-filter="football" aria-pressed="false">Football</button>
+<button type="button" class="filter" data-filter="prom" aria-pressed="false">Prom</button>
+<button type="button" class="filter" data-filter="portraits" aria-pressed="false">Grad &amp; Quince</button>
+<button type="button" class="filter" data-filter="events" aria-pressed="false">Events</button>
+<button type="button" class="filter" data-filter="sports" aria-pressed="false">More Sports</button>
+<button type="button" class="filter" data-filter="dance" aria-pressed="false">Dance</button>
+<button type="button" class="filter" data-filter="lamar" aria-pressed="false">Lamar Jackson</button>
+</div>
 <div class="gallery">
-<!-- GALLERY: replace each placeholder with <img src="images/work1.jpg" alt="..." loading="lazy"> -->
-<div class="tile"><div class="ph">Photo 1</div></div>
-<div class="tile"><div class="ph">Photo 2</div></div>
-<div class="tile"><div class="ph">Photo 3</div></div>
-<div class="tile"><div class="ph">Photo 4</div></div>
-<div class="tile"><div class="ph">Photo 5</div></div>
-<div class="tile"><div class="ph">Photo 6</div></div>
-<div class="tile"><div class="ph">Photo 7</div></div>
-<div class="tile"><div class="ph">Photo 8</div></div>
-<div class="tile"><div class="ph">Photo 9</div></div>
+<button class="tile" type="button" data-cat="football" data-full="work-01.jpg" aria-label="View larger: Football player adjusting his helmet under stadium lights at night"><img src="work-01.jpg" alt="Football player adjusting his helmet under stadium lights at night" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="prom" data-full="work-50.jpg" aria-label="View larger: Prom guest in a teal suit raising a fist to the crowd"><img src="work-50.jpg" alt="Prom guest in a teal suit raising a fist to the crowd" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="portraits" data-full="work-57.jpg" aria-label="View larger: Quinceañera in a blue ball gown beside bougainvillea"><img src="work-57.jpg" alt="Quinceañera in a blue ball gown beside bougainvillea" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="events" data-full="work-73.jpg" aria-label="View larger: Guests dancing at a sweet sixteen"><img src="work-73.jpg" alt="Guests dancing at a sweet sixteen" width="1400" height="933" loading="lazy"></button>
+<button class="tile" type="button" data-cat="sports" data-full="work-64.jpg" aria-label="View larger: Black and white portrait of an athlete covered in sweat"><img src="work-64.jpg" alt="Black and white portrait of an athlete covered in sweat" width="1320" height="1320" loading="lazy"></button>
+<button class="tile" type="button" data-cat="dance" data-full="work-28.jpg" aria-label="View larger: Dancer in a flowing purple costume mid performance"><img src="work-28.jpg" alt="Dancer in a flowing purple costume mid performance" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="lamar" data-full="work-12.jpg" aria-label="View larger: Lamar Jackson posing with a fan and her child"><img src="work-12.jpg" alt="Lamar Jackson posing with a fan and her child" width="1400" height="933" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-02.jpg" aria-label="View larger: Receiver making a leaping catch over a defender"><img src="work-02.jpg" alt="Receiver making a leaping catch over a defender" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="prom" data-full="work-53.jpg" aria-label="View larger: Prom guests arriving in a Lamborghini in front of a huge crowd"><img src="work-53.jpg" alt="Prom guests arriving in a Lamborghini in front of a huge crowd" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="portraits" data-full="work-66.jpg" aria-label="View larger: Graduate smiling and holding her tassel"><img src="work-66.jpg" alt="Graduate smiling and holding her tassel" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="events" data-full="work-32.jpg" aria-label="View larger: Group of friends smiling at Universal Orlando at night"><img src="work-32.jpg" alt="Group of friends smiling at Universal Orlando at night" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="sports" data-full="work-03.jpg" aria-label="View larger: Cross country runners racing through a park"><img src="work-03.jpg" alt="Cross country runners racing through a park" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="dance" data-full="work-30.jpg" aria-label="View larger: Smiling performer in a pink floral dress"><img src="work-30.jpg" alt="Smiling performer in a pink floral dress" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="lamar" data-full="work-25.jpg" aria-label="View larger: Lamar Jackson holding the Lamar Jackson Way sign with event staff"><img src="work-25.jpg" alt="Lamar Jackson holding the Lamar Jackson Way sign with event staff" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-63.jpg" aria-label="View larger: Coral Glades player set in his stance"><img src="work-63.jpg" alt="Coral Glades player set in his stance" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="prom" data-full="work-54.jpg" aria-label="View larger: Two prom guests dancing on the red carpet"><img src="work-54.jpg" alt="Two prom guests dancing on the red carpet" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="portraits" data-full="work-55.jpg" aria-label="View larger: Quinceañera placing her crown at golden hour"><img src="work-55.jpg" alt="Quinceañera placing her crown at golden hour" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="events" data-full="work-74.jpg" aria-label="View larger: Group of guys celebrating under string lights"><img src="work-74.jpg" alt="Group of guys celebrating under string lights" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="sports" data-full="work-09.jpg" aria-label="View larger: Two cross country runners smiling and throwing up peace signs"><img src="work-09.jpg" alt="Two cross country runners smiling and throwing up peace signs" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="dance" data-full="work-29.jpg" aria-label="View larger: Dancer in green holding a leg extension on the floor"><img src="work-29.jpg" alt="Dancer in green holding a leg extension on the floor" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="lamar" data-full="work-18.jpg" aria-label="View larger: Lamar Jackson smiling at his jersey retirement"><img src="work-18.jpg" alt="Lamar Jackson smiling at his jersey retirement" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-05.jpg" aria-label="View larger: Raiders football team running onto the field behind team flags"><img src="work-05.jpg" alt="Raiders football team running onto the field behind team flags" width="1400" height="933" loading="lazy"></button>
+<button class="tile" type="button" data-cat="prom" data-full="work-48.jpg" aria-label="View larger: Prom guest in a green feathered gown stepping out of an SUV"><img src="work-48.jpg" alt="Prom guest in a green feathered gown stepping out of an SUV" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="portraits" data-full="work-59.jpg" aria-label="View larger: Smiling quinceañera seated in front of pink flowers"><img src="work-59.jpg" alt="Smiling quinceañera seated in front of pink flowers" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="events" data-full="work-33.jpg" aria-label="View larger: Three friends in matching plaid shirts at Universal Orlando"><img src="work-33.jpg" alt="Three friends in matching plaid shirts at Universal Orlando" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="sports" data-full="work-61.jpg" aria-label="View larger: Grapplers locked up at a Brazilian Jiu Jitsu tournament"><img src="work-61.jpg" alt="Grapplers locked up at a Brazilian Jiu Jitsu tournament" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="dance" data-full="work-31.jpg" aria-label="View larger: Dancer in teal leaning into a dramatic pose"><img src="work-31.jpg" alt="Dancer in teal leaning into a dramatic pose" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="lamar" data-full="work-23.jpg" aria-label="View larger: Lamar Jackson laughing with a school administrator"><img src="work-23.jpg" alt="Lamar Jackson laughing with a school administrator" width="1400" height="933" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-43.jpg" aria-label="View larger: Defender making a diving tackle at night"><img src="work-43.jpg" alt="Defender making a diving tackle at night" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="prom" data-full="work-46.jpg" aria-label="View larger: Red sports car arriving at a prom send off"><img src="work-46.jpg" alt="Red sports car arriving at a prom send off" width="1400" height="933" loading="lazy"></button>
+<button class="tile" type="button" data-cat="portraits" data-full="work-56.jpg" aria-label="View larger: Quinceañera in a blue gown under string lights"><img src="work-56.jpg" alt="Quinceañera in a blue gown under string lights" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="events" data-full="work-34.jpg" aria-label="View larger: Four friends posing under the Welcome to Universal Orlando sign"><img src="work-34.jpg" alt="Four friends posing under the Welcome to Universal Orlando sign" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="lamar" data-full="work-24.jpg" aria-label="View larger: Fan wearing a Lamar Jackson jersey at the ceremony"><img src="work-24.jpg" alt="Fan wearing a Lamar Jackson jersey at the ceremony" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-04.jpg" aria-label="View larger: Orange football helmet resting on the grass"><img src="work-04.jpg" alt="Orange football helmet resting on the grass" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="prom" data-full="work-47.jpg" aria-label="View larger: Prom guest in a black beaded gown on the red carpet"><img src="work-47.jpg" alt="Prom guest in a black beaded gown on the red carpet" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="portraits" data-full="work-58.jpg" aria-label="View larger: Back of a blue quinceañera ball gown in a garden"><img src="work-58.jpg" alt="Back of a blue quinceañera ball gown in a garden" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="events" data-full="work-44.jpg" aria-label="View larger: Three friends smiling at an awards banquet"><img src="work-44.jpg" alt="Three friends smiling at an awards banquet" width="1400" height="933" loading="lazy"></button>
+<button class="tile" type="button" data-cat="lamar" data-full="work-26.jpg" aria-label="View larger: Framed Boynton Beach number 7 jersey"><img src="work-26.jpg" alt="Framed Boynton Beach number 7 jersey" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-06.jpg" aria-label="View larger: Lineman lifting a teammate in celebration after a score"><img src="work-06.jpg" alt="Lineman lifting a teammate in celebration after a score" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="prom" data-full="work-49.jpg" aria-label="View larger: Prom guest in a crystal jacket sitting in a convertible"><img src="work-49.jpg" alt="Prom guest in a crystal jacket sitting in a convertible" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="portraits" data-full="work-65.jpg" aria-label="View larger: Graduate crouching in a white dress and cap"><img src="work-65.jpg" alt="Graduate crouching in a white dress and cap" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="events" data-full="work-45.jpg" aria-label="View larger: Banquet guests gathered around a table"><img src="work-45.jpg" alt="Banquet guests gathered around a table" width="1400" height="933" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-07.jpg" aria-label="View larger: Coach embracing a player on the sideline"><img src="work-07.jpg" alt="Coach embracing a player on the sideline" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="prom" data-full="work-51.jpg" aria-label="View larger: Couple in green arriving at prom past the crowd"><img src="work-51.jpg" alt="Couple in green arriving at prom past the crowd" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="portraits" data-full="work-67.jpg" aria-label="View larger: Graduate posing in an open navy gown"><img src="work-67.jpg" alt="Graduate posing in an open navy gown" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="events" data-full="work-71.jpg" aria-label="View larger: Four friends posing on a lit dance floor"><img src="work-71.jpg" alt="Four friends posing on a lit dance floor" width="1400" height="1153" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-08.jpg" aria-label="View larger: Black and white shot of a Wildcats player standing on the field"><img src="work-08.jpg" alt="Black and white shot of a Wildcats player standing on the field" width="1071" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="prom" data-full="work-52.jpg" aria-label="View larger: Prom guest fanning cash on stage in a crystal gown"><img src="work-52.jpg" alt="Prom guest fanning cash on stage in a crystal gown" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="portraits" data-full="work-68.jpg" aria-label="View larger: Graduate lifting her decorated cap"><img src="work-68.jpg" alt="Graduate lifting her decorated cap" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="events" data-full="work-72.jpg" aria-label="View larger: Party guests throwing up peace signs"><img src="work-72.jpg" alt="Party guests throwing up peace signs" width="1400" height="1176" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-10.jpg" aria-label="View larger: Player number 2 standing on the field at sunset"><img src="work-10.jpg" alt="Player number 2 standing on the field at sunset" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="portraits" data-full="work-69.jpg" aria-label="View larger: Graduate waving with her gown over her shoulder"><img src="work-69.jpg" alt="Graduate waving with her gown over her shoulder" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="events" data-full="work-75.jpg" aria-label="View larger: Coach posing with two students at an awards banquet"><img src="work-75.jpg" alt="Coach posing with two students at an awards banquet" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-11.jpg" aria-label="View larger: Trojans players kneeling in prayer before the game"><img src="work-11.jpg" alt="Trojans players kneeling in prayer before the game" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="portraits" data-full="work-70.jpg" aria-label="View larger: Graduate laughing while adjusting her cap"><img src="work-70.jpg" alt="Graduate laughing while adjusting her cap" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="events" data-full="work-76.jpg" aria-label="View larger: Friends holding a funny award plate on stage"><img src="work-76.jpg" alt="Friends holding a funny award plate on stage" width="1400" height="933" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-13.jpg" aria-label="View larger: Tigers players walking out toward the inflatable tunnel"><img src="work-13.jpg" alt="Tigers players walking out toward the inflatable tunnel" width="1246" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="events" data-full="work-77.jpg" aria-label="View larger: Three friends with gelato bars at a banquet"><img src="work-77.jpg" alt="Three friends with gelato bars at a banquet" width="1400" height="933" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-14.jpg" aria-label="View larger: Gold pirate football helmet in profile"><img src="work-14.jpg" alt="Gold pirate football helmet in profile" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-15.jpg" aria-label="View larger: Football team huddled on the field under an evening sky"><img src="work-15.jpg" alt="Football team huddled on the field under an evening sky" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-16.jpg" aria-label="View larger: Tigers ball carrier running with the football"><img src="work-16.jpg" alt="Tigers ball carrier running with the football" width="1083" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-17.jpg" aria-label="View larger: Black and white shot of the offensive line between plays"><img src="work-17.jpg" alt="Black and white shot of the offensive line between plays" width="1400" height="933" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-19.jpg" aria-label="View larger: Player kneeling on the field before warmups"><img src="work-19.jpg" alt="Player kneeling on the field before warmups" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-20.jpg" aria-label="View larger: Player number 16 walking back to the huddle"><img src="work-20.jpg" alt="Player number 16 walking back to the huddle" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-21.jpg" aria-label="View larger: Black and white close up of a player with a mirrored visor"><img src="work-21.jpg" alt="Black and white close up of a player with a mirrored visor" width="1400" height="1167" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-22.jpg" aria-label="View larger: Black and white shot of a Wildcats player covering his face before the game"><img src="work-22.jpg" alt="Black and white shot of a Wildcats player covering his face before the game" width="1400" height="926" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-27.jpg" aria-label="View larger: West Broward linemen firing off the line at practice"><img src="work-27.jpg" alt="West Broward linemen firing off the line at practice" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-35.jpg" aria-label="View larger: Two 7v7 players flexing under a bright blue sky"><img src="work-35.jpg" alt="Two 7v7 players flexing under a bright blue sky" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-36.jpg" aria-label="View larger: 7v7 player in a red Public Enemy jersey flexing"><img src="work-36.jpg" alt="7v7 player in a red Public Enemy jersey flexing" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-37.jpg" aria-label="View larger: 7v7 player pulling a Bulldogs beanie over his face"><img src="work-37.jpg" alt="7v7 player pulling a Bulldogs beanie over his face" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-38.jpg" aria-label="View larger: Player holding a football toward the camera at a 7v7 tournament"><img src="work-38.jpg" alt="Player holding a football toward the camera at a 7v7 tournament" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-39.jpg" aria-label="View larger: Coach reviewing film on a tablet with Ghost Crew players"><img src="work-39.jpg" alt="Coach reviewing film on a tablet with Ghost Crew players" width="906" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-40.jpg" aria-label="View larger: Gibbons receiver catching a pass in warmups"><img src="work-40.jpg" alt="Gibbons receiver catching a pass in warmups" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-41.jpg" aria-label="View larger: Gibbons number 2 holding a football"><img src="work-41.jpg" alt="Gibbons number 2 holding a football" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-42.jpg" aria-label="View larger: Bucks number 15 walking onto the field"><img src="work-42.jpg" alt="Bucks number 15 walking onto the field" width="1400" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-60.jpg" aria-label="View larger: Purple and gold tiger striped helmet in the locker room"><img src="work-60.jpg" alt="Purple and gold tiger striped helmet in the locker room" width="933" height="1400" loading="lazy"></button>
+<button class="tile" type="button" data-cat="football" data-full="work-62.jpg" aria-label="View larger: Youth running back stiff arming a defender"><img src="work-62.jpg" alt="Youth running back stiff arming a defender" width="933" height="1400" loading="lazy"></button>
+</div>
+<div class="more"><button type="button" class="btn btn-ghost" id="more-btn" style="cursor:pointer;background:none;font-family:inherit">SEE ALL 77 PHOTOS</button></div>
+</div>
+</section>
+
+<section id="reviews" class="block" aria-labelledby="reviews-h">
+<div class="wrap">
+<div class="head">
+<p class="eyebrow">REVIEWS</p>
+<h2 id="reviews-h" class="display">Don't take our word for it.</h2>
+</div>
+<div class="reviews">
+<figure class="review">
+<div class="stars" aria-label="5 stars">★★★★★</div>
+<blockquote>“I hired Next Level Media to capture my Brazilian Jiu‑Jitsu competition over the weekend and Zion and Jeremiah absolutely exceeded my expectations. They showed up early, stayed late and went above and beyond to capture the action and the moments that made the day special. The photos and videos turned out incredible. They gave me content I'll cherish for the rest of my life and I couldn't be happier with their work. Both guys are extremely professional, talented, and a pleasure to work with. I can't recommend them enough!”</blockquote>
+<figcaption><strong>Steven Marinkovich</strong><span>Brazilian Jiu‑Jitsu competition</span></figcaption>
+</figure>
+<figure class="review">
+<div class="stars" aria-label="5 stars">★★★★★</div>
+<blockquote>“Thank you for my son's mixtape. And thank you for your professionalism as well. I really love the graphics and the way the photographer/videographer paid close attention to detail in every play. My son loves his video. And pics lol. I also appreciate you all filming him last minute, literally an hour before the game.”</blockquote>
+<figcaption><strong>Rosalyn L.</strong><span>Parent, youth football mixtape</span></figcaption>
+</figure>
+<figure class="review">
+<div class="stars" aria-label="5 stars">★★★★★</div>
+<blockquote>“Best day ever. Jasmine's quince. Thanks to Next Level Media for the amazing pictures and videos.”</blockquote>
+<figcaption><strong>Jasmine's family</strong><span>Quinceañera</span></figcaption>
+</figure>
 </div>
 </div>
 </section>
 
-<section id="about" class="block" aria-labelledby="about-h">
-<div class="wrap about">
-<div class="pic"><div class="ph">Photo coming soon</div></div>
+<section class="block work" aria-labelledby="how-h">
+<div class="wrap">
+<div class="head">
+<p class="eyebrow">HOW IT WORKS</p>
+<h2 id="how-h" class="display">Booking is easy.</h2>
+</div>
+<div class="steps">
+<div class="step"><span class="num">01</span><h3>Reach out</h3><p>Send us a message with what you need, the date and the location.</p></div>
+<div class="step"><span class="num">02</span><h3>Plan the shoot</h3><p>We lock in the details, the vibe and the shots that matter most to you.</p></div>
+<div class="step"><span class="num">03</span><h3>Get your content</h3><p>We shoot, edit and deliver photos and video you'll be proud to post.</p></div>
+</div>
+
 <div class="copy">
 <p class="eyebrow">ABOUT</p>
 <h2 id="about-h" class="display">We don't just shoot. We level you up.</h2>
 <p class="body">Next Level Media is a creative team that lives where sport, culture and brand meet. From the sideline to the studio, we bring the same hunger to every shoot and deliver content you are proud to post.</p>
 </div>
+</div>
+</section>
+
+<section id="about" class="block" aria-labelledby="about-h">
+<div class="wrap">
+<div class="about-top">
+<div class="head" style="margin-bottom:0">
+<p class="eyebrow">ABOUT US</p>
+<h2 id="about-h" class="display">More than <em>content.</em></h2>
+</div>
+<div class="about-copy">
+<p class="body">We started Next Level Media because we believe every athlete, business and event has a story worth telling.</p>
+<p class="body">Content is everywhere. Storytelling is rare. We don't just record moments. <strong>We help people be remembered.</strong></p>
+</div>
+</div>
+<div class="team">
+<figure class="member">
+<div class="member-pic"><img src="about-zion.jpg" alt="Zion of Next Level Media in a red number 99 jersey on a football field" width="694" height="867" loading="lazy"></div>
+<figcaption><h3>Zion</h3><span>Co-owner</span></figcaption>
+</figure>
+<figure class="member">
+<div class="member-pic"><img src="about-jeremiah.jpg" alt="Jeremiah of Next Level Media in a blue number 99 jersey on a football field" width="594" height="742" loading="lazy"></div>
+<figcaption><h3>Jeremiah</h3><span>Co-owner. Visionary. Creative.</span></figcaption>
+</figure>
+<div class="mission">
+<p class="eyebrow">OUR MISSION</p>
+<p class="mission-big display">CAPTURE<b>.</b><br>CREATE<b>.</b><br>ELEVATE<b>.</b></p>
+<p class="body">Helping people look professional and <strong>get seen.</strong></p>
+<ul class="pillars">
+<li><strong>Capture</strong><span>Powerful storytelling</span></li>
+<li><strong>Create</strong><span>Strategic content</span></li>
+<li><strong>Elevate</strong><span>Build influence and impact</span></li>
+</ul>
+</div>
+</div>
+<p class="values"><span>Faith drives us.</span><span>Purpose guides us.</span><span>Impact defines us.</span><span><b>Next Level</b> is us.</span></p>
 </div>
 </section>
 
@@ -188,12 +475,15 @@ footer small{font-size:14px;color:#9A9A9A}
 <p>Tell us what you're planning, the date and where it is. We'll get back to you with availability and a quote.</p>
 </div>
 <div class="contact">
-<!-- CONTACT: put the real email in both places below -->
-<a class="btn btn-dark" href="#book">EMAIL TO BOOK</a>
+<a class="btn btn-dark" href="mailto:nextlevelmedia321@gmail.com?subject=Booking%20inquiry&amp;body=Hi%20Next%20Level%20Media%2C%0A%0AWhat%20I%20need%3A%0ADate%3A%0ALocation%3A%0A">EMAIL TO BOOK</a>
+<div class="contact-row">
+<a class="btn btn-outline-dark" href="sms:+19548251266">TEXT US</a>
+<a class="btn btn-outline-dark" href="https://ig.me/m/nextlevelmedia99" target="_blank" rel="noopener">DM ON INSTAGRAM</a>
+</div>
 <ul>
-<li>Email: coming soon</li>
-<li>Phone: coming soon</li>
-<li>Instagram: coming soon</li>
+<li><a href="mailto:nextlevelmedia321@gmail.com?subject=Booking%20inquiry">nextlevelmedia321@gmail.com</a></li>
+<li><a href="tel:+19548251266">(954) 825 1266</a></li>
+<li><a href="https://instagram.com/nextlevelmedia99" target="_blank" rel="noopener">@nextlevelmedia99</a></li>
 </ul>
 </div>
 </div>
@@ -203,9 +493,39 @@ footer small{font-size:14px;color:#9A9A9A}
 <footer>
 <div class="wrap">
 <a class="brand" href="#top"><img src="logo.svg" alt=""><span><b style="color:var(--accent);font-weight:400">NEXT</b> LEVEL <b style="color:var(--accent);font-weight:400">MEDIA</b></span></a>
-<small>© <span id="yr">2026</span> Next Level Media. Sports, athletes, brands and events.</small>
+<a href="https://instagram.com/nextlevelmedia99" target="_blank" rel="noopener" style="color:#D4D4D4;font-size:14px;font-weight:600;letter-spacing:.08em;text-decoration:none">INSTAGRAM</a>
+<small>© <span id="yr">2026</span> Next Level Media. Sports, athletes, brands, events and portraits.</small>
 </div>
 </footer>
+<dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+<div class="stage"><img id="lb-img" alt=""></div>
+<button type="button" class="lb-btn lb-close" id="lb-close" aria-label="Close">✕</button>
+<button type="button" class="lb-btn lb-prev" id="lb-prev" aria-label="Previous photo">‹</button>
+<button type="button" class="lb-btn lb-next" id="lb-next" aria-label="Next photo">›</button>
+</dialog>
+<script>
+(function(){
+var tiles=[].slice.call(document.querySelectorAll('.gallery .tile'));var cur='all',expanded=false,more=document.getElementById('more-btn');
+function apply(){var shown=0;tiles.forEach(function(t){var ok=cur==='all'||t.dataset.cat===cur;if(ok&&cur==='all'&&!expanded&&shown>=24)ok=false;if(ok)shown++;t.hidden=!ok});more.parentNode.hidden=!(cur==='all'&&!expanded)}
+more.addEventListener('click',function(){expanded=true;apply()});apply();
+var filters=[].slice.call(document.querySelectorAll('.filter'));
+filters.forEach(function(f){f.addEventListener('click',function(){
+var c=f.dataset.filter;
+filters.forEach(function(x){var on=x===f;x.classList.toggle('is-on',on);x.setAttribute('aria-pressed',on)});
+cur=c;apply();
+})});
+var lb=document.getElementById('lightbox'),img=document.getElementById('lb-img'),pos=0;
+function visible(){return tiles.filter(function(t){return !t.hidden})}
+function show(i){var v=visible();pos=(i+v.length)%v.length;var t=v[pos];img.src=t.dataset.full;img.alt=t.querySelector('img').alt}
+tiles.forEach(function(t){t.addEventListener('click',function(){show(visible().indexOf(t));if(lb.showModal)lb.showModal();else lb.setAttribute('open','')})});
+document.getElementById('lb-close').onclick=function(){lb.close()};
+document.getElementById('lb-prev').onclick=function(){show(pos-1)};
+document.getElementById('lb-next').onclick=function(){show(pos+1)};
+lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('stage'))lb.close()});
+lb.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')show(pos-1);if(e.key==='ArrowRight')show(pos+1)});
+})();
+</script>
+<a class="mobile-book" href="#book">BOOK A SHOOT</a>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body>
 </html>
